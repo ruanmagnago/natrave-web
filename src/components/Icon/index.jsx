@@ -1,5 +1,5 @@
 import { ReactComponent as back } from "./svgs/back.svg";
-import { ReactComponent as arrowLeft } from "./svgs/arrowleft.svg";
+import { ReactComponent as arrowLeft } from "./svgs/arrowLeft.svg";
 import { ReactComponent as arrowRight } from "./svgs/arrowRight.svg";
 import { ReactComponent as profile } from "./svgs/profile.svg";
 import { ReactComponent as logout } from "./svgs/logout.svg";
