@@ -28,7 +28,7 @@ export const SingUp = () => {
         url: "/users",
         data: values,
       });
-      alert(JSON.stringify(res));
+      setAuth(res.data);
     },
     validationSchema,
   });
