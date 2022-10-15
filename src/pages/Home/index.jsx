@@ -12,7 +12,7 @@ export function Home() {
         <img src="/logo/logo-fundo-vinho.svg" className="w-40" />
       </header>
 
-      <div className="container-xxl flex-1 p-4 flex flex-col itens-center md:flex-row">
+      <div className="container-2xl flex-1 p-4 flex flex-col itens-center md:flex-row">
         <div className="md:flex-1 flex justify-center">
           <img src="/logo/img.png" className="w-full" />
         </div>

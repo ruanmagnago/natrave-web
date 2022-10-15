@@ -3,7 +3,7 @@ import axios from "axios";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useLocalStorage } from "react-use";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const validationSchema = yup.object().shape({
   name: yup.string().required("Preencha seu nome."),
@@ -14,6 +14,7 @@ const validationSchema = yup.object().shape({
 
 export const SingUp = () => {
   const [auth, setAuth] = useLocalStorage("auth", {});
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -28,10 +29,24 @@ export const SingUp = () => {
         url: "/users",
         data: values,
       });
-      setAuth(res.data);
+      login(values);
     },
     validationSchema,
   });
+
+  const login = async (params) => {
+    const res = await axios({
+      method: "get",
+      baseURL: import.meta.env.VITE_API_URL,
+      url: "/login",
+      auth: {
+        username: params.email,
+        password: params.password,
+      },
+    });
+    setAuth(res.data);
+    navigate("/dashboard");
+  };
 
   if (auth?.user?.id) {
     return <Navigate to="/dashboard" replace={true} />;
